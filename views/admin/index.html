@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel="stylesheet" href="stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" media="print" href="stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="stylesheets/print.css" />
+
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/ui-bootstrap.js"></script>
+    <script src="lib/angular-route.js"></script>
+  </head>
+  <body>
+    <body ng-app="SvcEnquesta" ng-controller="MainAdminController" ng-init="initApp()">
+      <nav class="navbar navbar-default" role="navigation" ng-controller="SeleccioController">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="carregar('login')" style="cursor:pointer;">{{login}}</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+              <li><a ng-click="carregar('llista')" ng-show="session">Veure Respostes</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav>
+      <!-- Aqui la part dinamica -->
+      <div id="msg" ng-show="flag">{{msg}}</div>
+      <ng-view></ng-view>
+    </body>
+    <script src="javascripts/mainAdmin.js"></script>
+    <script src="javascripts/controllers/admin/seleccioController.js"></script>
+    <script src="javascripts/controllers/admin/loginController.js"></script>
+    <script src="javascripts/controllers/admin/llistaController.js"></script>
+</html>

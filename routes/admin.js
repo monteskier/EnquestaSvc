@@ -3,7 +3,7 @@ var router = express.Router();
 var ObjectID = require('mongodb').ObjectID;
 
 router.get('/', function(req, res, next){
-  res.render('index', {title: 'Benvingut a la pagina administrador'});
+  res.render('/admin/index', {title: 'Benvingut a la pagina administrador'});
 });
 
 router.post('/login', function(req, res, next){
