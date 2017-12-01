@@ -1,11 +1,156 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <title>Medalla de Sant Vicenç</title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="stylesheets/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="stylesheets/print.css" />
+    <link rel="icon" type="image/svg" href="lib/img/medalla.svg" />
+
+    <script src="lib/angular.js"></script>
+    <script src="lib/ui-bootstrap-tpls.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+  <header>
+    <img src="lib/img/logo.png"></img>
+    <h1><p>Medalla de Sant Vicenç de Castellet</h1></p>
+  </header>
+  <body ng-app="EnquestaSvc" ng-controller="MainDefaultController" ng-init="initApp()">
+  <div id="containerPost">
+    <p>
+      La Medalla de Sant Vicenç, és un guardó d’honor que va néixer a iniciativa de
+      l’Ajuntament per reconèixer a aquelles persones del nostre poble que,
+      de manera desinteressada, fan una feina extraordinària en el seu dia a dia i amb vocació de voluntariat dediquen el seu temps i esforç a fer de Sant Vicenç un poble viu, en benefici del veïns i veïnes del municipi. També està pensada per reconèixer aquells Santvicentins i Santvicentines que, amb els seus èxits, porten amb orgull el nom de Sant Vicenç arreu.La Medalla de Sant Vicenç, és atorgada a través d’un procés participatiu obert i com a resultat de la voluntat majoritària de la ciutadania que hi participa, tant en la presentació de candidats, com en
+      l’elecció d’aquests. L’any 2016, seguint aquest procés, va ser atorgada per primera
+      vegada i amb dos anys de vida, aquest projecte aspira a perpetuar-se en el temps,
+      per tal de que, any rere any, es posi en valor la tasca del major patrimoni que
+      té Sant Vicenç de Castellet, la seva gent.
+    </p>
+    <div id="containerForm">
+
+      <legend>Coneix la iniciativa de conseció de la Medalla de Sant Vicenç?</legend>
+    <div class="form-group">
+      <div class="radio">
+            <label>
+                <input type="radio" name="op1" value="Si" ng-model="formData.op1">
+                Sí:
+            </label>
+      </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="op1" value="No" ng-model="formData.op1">
+                No:
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+      <legend>Ha participat presentant candidats o bé votant per un d'ells?</legend>
+      <div class="radio">
+        <label>
+          <input type="radio" name="op2" ng-model="formData.op2" value="Si" id="op21">
+          Sí:
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="op2" ng-model="formData.op2" value="No" id="op22">
+          No:
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <legend>Coneix qui va ser el guanyador/a de l'edició de 2016?</legend>
+      <div class="radio">
+        <label>
+          <input type="radio" name="op3" ng-model="formData.op3" value="Si" id="op31">
+          Si:
+        </label>
+      </div>
+      <div class="radio">
+      <label>
+        <input type="radio" name="op3" valeu="No" ng-model="formData.op3" id="op32">
+          No:
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <legend>I el guanyador/a de edició actual, de 2017?</legend>
+      <div class="radio">
+        <label>
+          <input type="radio" name="op4" value="Si" ng-model="formData.op4" id="op41">
+          Sí:
+        </label>
+      <div>
+      <div class="radio">
+      <label>
+        <input type="radio" name="op4" value="No" ng-model="formData.op4" id="op42">
+        No:
+      </label>
+      </div>
+    </div>
+    </div>
+    <div class="form-group">
+      <legend>Voldria participar activament en la Comissió creada a l'efcte:</legend>
+      <div class="radio">
+        <label>
+          <input type="radio" name="op5" value="Si" ng-model="formData.op5" id="op51">
+          Si:
+        </label>
+    </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="op5" value="No" ng-model="formData.op5" id="op52">
+          No:
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <legend>Creu que és una iniciativa que pot aportar valor a la història del municipi?</legend>
+        <div class="select">
+          <select name="op6" ng-model="formData.op6">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+          </select>
+      </div>
+      <small class="form-text text-muted">Gens d'acord - 1</small>
+      <small class="form-text text-muted">Una mica d'acrod - 2</small>
+      <small class="form-text text-muted">Sovint d'acord - 3</small>
+      <small class="form-text text-muted">Gairebe Sempre d'acord - 4</small>
+      <small class="form-text text-muted">Molt d'acord - 5</small>
+    </div>
+    <div class="form-group">
+      <legend>Creu que és una iniciativa que pot aportar valor a la història del municipi?</legend>
+        <div class="select">
+          <select name="op7" ng-model="formData.op7">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+          </select>
+      </div>
+<small class="form-text text-muted">Gens d'acord - 1</small>
+<small class="form-text text-muted">Una mica d'acrod - 2</small>
+<small class="form-text text-muted">Sovint d'acord - 3</small>
+<small class="form-text text-muted">Gairebe Sempre d'acord - 4</small>
+<small class="form-text text-muted">Molt d'acord - 5</small>
+<div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="op8">Observacions/suggeriments</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="enviar()">Enviar</button>
+  </div>
   </body>
+  <script src="javascripts/mainDefault.js"></script>
 </html>
