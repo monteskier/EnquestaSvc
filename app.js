@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
 var monk = require('monk');
-var db = monk("localhost:27017/SvcTestMedalla");
+var db = monk("localhost:27017/MedallaSvc");
 var session = require("express-session");
 
 var index = require('./routes/index');
@@ -33,9 +33,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next){
+  req.db = db;
+  next()
+});
+
 app.use('/', index);
 app.use('/users', users);
 //app.use('/admin', admin);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
