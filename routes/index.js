@@ -14,7 +14,7 @@ router.post('/enviar', function(req, res, next){
   collection.findOne({},{},function(e, docs){
     if(docs){
       console.log("Hi han dades desades");
-      next(actualitzar(req, res, next));
+      actualitzar(req, res, next);
       res.json({"msg":"Gràcies per participar"});
     }else{
       console.log("No Hi han dades desades");
@@ -22,14 +22,14 @@ router.post('/enviar', function(req, res, next){
       console.log("el post te:"+post.op1);
       var Resultats = new ResultatsObj();
       Resultats.reset();
-      Resultats.addVegades();
+      Resultats.addVegades(0);
       Resultats.setVotsP1(post.op1, 0);
       Resultats.setVotsP2(post.op2, 0);
       Resultats.setVotsP3(post.op3, 0);
       Resultats.setVotsP4(post.op4, 0);
       Resultats.setVotsP5(post.op5, 0);
-      Resultats.setVotsP6(parseInt(post.op6, 0));
-      Resultats.setVotsP7(parseInt(post.op7, 0));
+      Resultats.setVotsP6(parseInt(post.op6),0);
+      Resultats.setVotsP7(parseInt(post.op7),0);
       Resultats.setComentaris(post.op8, 0);
 
       collection.insert(Resultats, function(e, docs){
@@ -63,7 +63,7 @@ function actualitzar(req, res, next){
     console.log("DADES DE DOCS"+docs.pregunta1.desc);
     var Resultats = new ResultatsObj();
     Resultats.reset();
-    Resultats.addVegades();
+    Resultats.addVegades(docs.vegades);
     Resultats.setVotsP1(post.op1, docs.pregunta1); //sha de pasar el antic valor i sumar-ho abans de incrementar
     Resultats.setVotsP2(post.op2, docs.pregunta2);
     Resultats.setVotsP3(post.op3, docs.pregunta3);
@@ -81,6 +81,7 @@ function actualitzar(req, res, next){
       }
     });
   });
+  next();
 }
 
 module.exports = router;

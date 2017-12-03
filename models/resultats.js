@@ -10,7 +10,7 @@ this.reset = function() {
   this.pregunta5 = {};
   this.pregunta6 = {};
   this.pregunta7 = {};
-  this.pregunta8 = {}
+  this.pregunta8 = {};
 
   this.pregunta1.desc = "Coneix la iniciativa de conseció de la Medalla de Sant Vicenç?";
   this.pregunta2.desc = "Ha participat presentant candidats o bé votant per un d'ells?";
@@ -49,7 +49,10 @@ this.reset = function() {
   this.getVegades = function () {
     return this.vegades;
   };
-  this.addVegades = function(){
+  this.addVegades = function(vegades){
+    if(vegades!=0){
+      this.vegades + vegades;
+    }
     this.vegades++;
   }
   //Pregunta 1 getter/setter
@@ -184,11 +187,16 @@ this.reset = function() {
     return this.pregunta8.comentaris;
   };
   this.setComentaris = function(result, antic){
-    if(antic.comentaris.length!=0){
-      antic.comentaris.forEach(function(element){
-          this.pregunta8.comentaris.push(element);
-      });
-    }*/
+    if(antic!=0){
+      console.log(antic);
+      if(antic.comentaris.length>0){
+        var buffer = [];
+        antic.comentaris.forEach(function(element){
+          buffer.push(element);
+        });
+        this.pregunta8.comentaris = buffer;
+      }
+    }
     this.pregunta8.comentaris.push(result);
   }
 }
