@@ -57,10 +57,11 @@ ul.center{
 
 }#containerForm{
   margin-left: auto;
-  background-color: rgba(0, 0, 50, 0.3);
   padding:10px;
   margin-right: auto;
-  width: 50%;
+  width: 70%;
+  border-style: groove;
+  border-size:1px;
   margin-top:20px;
   }.radio{
     display:flex;
