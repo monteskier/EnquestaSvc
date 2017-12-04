@@ -8,8 +8,9 @@ angularApp.controller('MainDefaultController', function($scope, $location, $root
       url: "/enviar",
       data: $scope.formData
     }).then(function(response){
+      $scope.polssat=true;
       console.log(response.data.msg);
       alert(response.data.msg);
-    })
+    });
   };
 });

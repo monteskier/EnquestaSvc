@@ -3,7 +3,7 @@ var router = express.Router();
 var ObjectID = require('mongodb').ObjectID;
 
 router.get('/', function(req, res, next){
-  res.render('/admin/index', {title: 'Benvingut a la pagina administrador'});
+  res.render('admin/index', {title: 'Benvingut a la pagina administrador'});
 });
 
 router.post('/llista', function(req, res, next){
@@ -23,7 +23,7 @@ router.post('/login', function(req, res, next){
   var name = req.param("name");
   var password = req.param("password");
   var db = req.db;
-  var collection = db.get("user");
+  var collection = db.get("users");
 
   collection.find({"user":name, "password":password}, function(err, docs){
     if(err || docs.length===0){
@@ -36,3 +36,5 @@ router.post('/login', function(req, res, next){
     res.json({"msg":"Benvingut/da "+ req.session.user, "session":true, "login":true});
   });
 });
+
+module.exports = router;
