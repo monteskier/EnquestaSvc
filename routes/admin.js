@@ -6,6 +6,19 @@ router.get('/', function(req, res, next){
   res.render('/admin/index', {title: 'Benvingut a la pagina administrador'});
 });
 
+router.post('/llista', function(req, res, next){
+  var db = req.db;
+  var collection = db.get("resultats");
+
+  collection.findOne({},{}, function(e, docs){
+    if(err || docs.length===0){
+    res.json({"msg":"sense dades"})  ;
+  }else{
+    res.send(docs);
+  }
+  });
+});
+
 router.post('/login', function(req, res, next){
   var name = req.param("name");
   var password = req.param("password");
@@ -13,7 +26,7 @@ router.post('/login', function(req, res, next){
   var collection = db.get("user");
 
   collection.find({"user":name, "password":password}, function(err, docs){
-    if(err || docs.length==0){
+    if(err || docs.length===0){
       res.json({"msg":"Usuari o contrasenya incorrectes","login":false});
     }
 

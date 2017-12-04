@@ -26,15 +26,6 @@ angularApp.controller('MainAdminController', function($scope, $location, $rootSc
     templateUrl:"templates/admin/llista.html",
     controller:"LlistaController"
   });
-
-  $routeProvider.when('/nou',{
-    templateUrl:"templates/admin/nou.html",
-    controller:"NouController"
-  });
-  $routeProvider.when('/editar',{
-    templateUrl:"templates/admin/editar.html",
-    controller:"EditarController"
-  });
   $routeProvider.when('/login',{
     templateUrl:"templates/admin/login.html",
     controller:"LoginController"

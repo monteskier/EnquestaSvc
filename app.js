@@ -6,11 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
 var monk = require('monk');
-var db = monk("localhost:27017/MedallaSvc");
+var db = monk("localhost:27017/EnquestaSvc");
 var session = require("express-session");
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var admin = require('./routes/admin');
 
 var app = express();
@@ -39,7 +38,7 @@ app.use(function(req, res, next){
 });
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/admin', admin);
 //app.use('/admin', admin);
 
 
