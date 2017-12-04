@@ -6,14 +6,15 @@ router.get('/', function(req, res, next){
   res.render('admin/index', {title: 'Benvingut a la pagina administrador'});
 });
 
-router.post('/llista', function(req, res, next){
+router.get('/llista', function(req, res, next){
   var db = req.db;
   var collection = db.get("resultats");
 
-  collection.findOne({},{}, function(e, docs){
+  collection.findOne({},{}, function(err, docs){
     if(err || docs.length===0){
     res.json({"msg":"sense dades"})  ;
   }else{
+    console.log(docs);
     res.send(docs);
   }
   });

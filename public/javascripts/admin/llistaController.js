@@ -1,12 +1,15 @@
 angular.module('SvcEnquesta')
-  .controller("LlistaController",['$rootScope','$scope','$location', function($rootScope, $scope, $location){
+  .controller("LlistaController",['$rootScope','$scope','$location','$http', function($rootScope, $scope, $location, $http){
     'use strict';
     $scope.obtindreResultats = function(){
+      console.log("anem a llsitar");
       $http({
         method:"GET",
         url:"admin/llista"
       }).then(function(request){
-          $scope.posts = request.data;
+          console.log(request);
+          $scope.post = request.data;
+          console.log($scope.post);
       });
     };
 

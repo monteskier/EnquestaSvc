@@ -1,1 +1,42 @@
-<h1>Llista</h1>
+<div id ="contenidorLlista" ng-controller="LlistaController" ng-init="obtindreResultats()">
+  <h1>Resultats de les enquestes en temps real:</h1>
+
+    <ul>
+      <li><h3>1:{{post.pregunta1.desc}}</h3></li>
+      <li>Si:{{post.pregunta1.si}}</li>
+      <li>No:{{post.pregunta1.no}}</li>
+    </ul>
+    <ul>
+      <li><h3>2: {{post.pregunta2.desc}}</h3></li>
+      <li>Si:{{post.pregunta2.si}}</li>
+      <li>No:{{post.pregunta2.no}}</li>
+    </ul>
+    <ul>
+      <li><h3>3: {{post.pregunta3.desc}}</h3></li>
+      <li>Si:{{post.pregunta3.si}}</li>
+      <li>No:{{post.pregunta3.no}}</li>
+    </ul>
+    <ul>
+      <li><h3>4: {{post.pregunta4.desc}}</h3></li>
+      <li>Si:{{post.pregunta4.si}}</li>
+      <li>No:{{post.pregunta4.no}}</li>
+    </ul>
+    <ul>
+      <li><h3>5: {{post.pregunta5.desc}}</h3></li>
+      <li>Si:{{post.pregunta5.si}}</li>
+      <li>No:{{post.pregunta5.no}}</li>
+    </ul>
+    <ul>
+      <li><h3>6: {{post.pregunta6.desc}}</h3></li>
+      <li>Si:{{post.pregunta6.valor/post.vegades}}</li>
+    </ul>
+    <ul>
+      <li><h3>7: {{post.pregunta7.desc}}</h3></li>
+      <li>Si:{{post.pregunta7.valor/post.vegades}}</li>
+    </ul>
+    <ul>
+      <li><h3>8: {{post.pregunta8.desc}}</h3></li>
+      <ul ng-repeat="coment in post.pregunta8.comentaris">
+        <li>{{coment}}</li>
+      </ul>
+</div>

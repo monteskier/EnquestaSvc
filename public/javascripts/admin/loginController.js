@@ -1,5 +1,5 @@
 angular.module('SvcEnquesta')
-  .controller("LoginController",['$rootScope','$scope','$location', function($rootScope, $scope, $location, $http){
+  .controller("LoginController",['$rootScope','$scope','$location','$http', function($rootScope, $scope, $location, $http){
     'use strict';
     $scope.logout = function(){
 
