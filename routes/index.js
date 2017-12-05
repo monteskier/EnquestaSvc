@@ -14,7 +14,7 @@ router.post('/enviar', function(req, res, next){
   collection.findOne({},{},function(e, docs){
     if(docs){
       console.log("Hi han dades desades");
-      actualitzar(req, res, next);
+      actualitzar(req, res);
       res.json({"msg":"Gràcies per participar"});
     }else{
       console.log("No Hi han dades desades");
@@ -75,13 +75,12 @@ function actualitzar(req, res, next){
 
     collection.update({"_id": objectId},Resultats, function(e, docssub){
       if(e){
-        res.json({"msg":e});
+        return({"msg":e});
       }else{
-        res.json({"msg":"Gràcies per participar"});
+        return({"msg":"Gràcies per participar"});
       }
     });
   });
-  next();
 }
 
 module.exports = router;

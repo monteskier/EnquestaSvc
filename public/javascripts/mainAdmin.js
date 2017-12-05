@@ -6,6 +6,7 @@ angularApp.controller('MainAdminController', function($scope, $location, $rootSc
     $rootScope.flag = false;
     $rootScope.session = false;
     $rootScope.login = "login";
+    $location.path('login');
   };
 
   function setTimeout(){
