@@ -115,6 +115,9 @@ section.center{
     margin-top:10px;
     }
     title{
-      font-size:18px;
+      font-size:14px;
+    }
+    legend{
+      font-size:10px;
     }
 }
