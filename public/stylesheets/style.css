@@ -113,11 +113,11 @@ section.center{
     border-style: groove;
     border-size:1px;
     margin-top:10px;
-    }
-    title{
+    }title{
       font-size:14px;
-    }
-    legend{
+      text-align: left;
+    }#containerForm legend{
       font-size:10px;
+      text-align: left;
     }
 }
