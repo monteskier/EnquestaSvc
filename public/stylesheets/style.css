@@ -88,3 +88,27 @@ section.center{
   width: 200px;
   display:block;
 }
+@media screen and (max-width:640px) {
+  body {
+    padding: 10px;
+    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin-bottom: 30px;
+    height: 100%;
+  }
+  #containerPost{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-size: 10px;
+    text-align: justify;
+
+  }#containerForm{
+    margin-left: auto;
+    padding:10px;
+    margin-right: auto;
+    width: 90%;
+    border-style: groove;
+    border-size:1px;
+    margin-top:10px;
+    }
+}
