@@ -51,7 +51,7 @@ this.reset = function() {
   };
   this.addVegades = function(vegades){
     if(vegades!=0){
-      this.vegades + vegades;
+      this.vegades = this.vegades + vegades;
     }
     this.vegades++;
   }
@@ -165,7 +165,7 @@ this.reset = function() {
 
   this.setVotsP6 = function (valor, antic) {
     if(antic!=0){
-      this.pregunta6.valor = antic.valor;
+      this.pregunta6.valor = this.pregunta6.valor + antic;
     }
     this.pregunta6.valor = this.pregunta6.valor + valor
   }
@@ -176,7 +176,7 @@ this.reset = function() {
 
   this.setVotsP7 = function (valor, antic) {
     if(antic!=0){
-      this.pregunta7.valor = antic.valor;
+      this.pregunta7.valor = this.pregunta7.valor + antic;
     }
     this.pregunta7.valor = this.pregunta7.valor + valor
   }
