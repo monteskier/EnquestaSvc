@@ -30,7 +30,7 @@
     </p>
     <div id="containerForm">
       <form name="formulari" ng-submit="enviar()">
-      <legend>Coneix la iniciativa de conseció de la Medalla de Sant Vicenç?</legend>
+      <legend>Coneix la iniciativa de concessió de la Medalla de Sant Vicenç?</legend>
     <div class="form-group">
       <div class="radio">
             <label>
@@ -92,24 +92,28 @@
     </div>
     </div>
     <div class="form-group">
-      <legend>Voldria participar activament en la Comissió creada a l'efcte:</legend>
+      <legend>Voldria participar activament en la Comissió creada a l'efecte:</legend>
       <div class="radio">
         <label>
-          <input type="radio" name="op5" ng-required="!formData.op5" value="Si" ng-model="formData.op5" id="op51">
+          <input type="radio" name="op5" ng-change="demanarMail()" ng-required="!formData.op5" value="Si" ng-model="formData.op5" id="op51">
           Si:
         </label>
     </div>
       <div class="radio">
         <label>
-          <input type="radio" name="op5" value="No" ng-required="!formData.op5" ng-model="formData.op5" id="op52">
+          <input type="radio" name="op5"  ng-change="demanarMail()" value="No" ng-required="!formData.op5" ng-model="formData.op5" id="op52">
           No:
         </label>
       </div>
     </div>
+    <div class="form-group" ng-hide="mail">
+      <label style="color:red;">Correu electrònic requerit:</label>
+      <input type="email" ng-required="obligatmail" ng-model="formData.mail" />
+    </div>
     <div class="form-group">
       <legend>Creu que és una iniciativa que pot aportar valor a la història del municipi?</legend>
         <div class="select">
-          <select name="op6" ng-model="formData.op6" ng-required="!formData.op6">
+          <select name="op6" ng-model="formData.op6" ng-change="obligatorietat()" ng-required="!formData.op6">
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -126,7 +130,7 @@
     <div class="form-group">
       <legend>Li sembla que el procés de concessió és el correcte? </legend>
         <div class="select">
-          <select name="op7" ng-required="!formData.op7" ng-model="formData.op7">
+          <select name="op7" ng-required="!formData.op7" ng-change="obligatorietat()" ng-model="formData.op7">
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -142,7 +146,7 @@
     </div>
     <div class="form-group">
       <label for="op8">Observacions/suggeriments</label>
-      <textarea class="form-control" id="exampleTextarea" ng-model="formData.op8"  name="op8" rows="3"></textarea>
+      <textarea class="form-control" id="exampleTextarea" ng-required="obligat" ng-model="formData.op8"  name="op8" rows="3"></textarea>
     </div>
 
   </div>

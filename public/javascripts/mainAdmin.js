@@ -7,12 +7,13 @@ angularApp.controller('MainAdminController', function($scope, $location, $rootSc
     $rootScope.session = false;
     $rootScope.login = "login";
     $location.path('login');
+    setTimeout(function(){
+      $rootScope.flag = false;
+      $rootScope.printFlag = false;
+    },3000);
   };
 
-  function setTimeout(){
-    $rootScope.flag = false;
-    $rootScope.printFlag = false;
-  }
+
 
 }).config(['$locationProvider','$routeProvider', function($locationProvider, $routeProvider){
   'use strict';

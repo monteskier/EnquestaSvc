@@ -43,6 +43,7 @@ this.reset = function() {
 
 
   this.pregunta8.comentaris = [];
+  this.mails = [];
 
   //Vegades Setter/getter
 
@@ -187,7 +188,7 @@ this.reset = function() {
     return this.pregunta8.comentaris;
   };
   this.setComentaris = function(result, antic){
-    if(antic!=0){
+    if(antic!=0 && antic!==null){
       console.log(antic);
       if(antic.comentaris.length>0){
         var buffer = [];
@@ -198,6 +199,22 @@ this.reset = function() {
       }
     }
     this.pregunta8.comentaris.push(result);
+  }
+  //Mails getter/setter
+this.getMails = function(){
+    return this.mails;
+}
+this.setMails = function(result, antic){
+  if(antic!=0 && antic!==null){
+    if(antic.length>0){
+      var buffer = [];
+      antic.forEach(function(element){
+        buffer.push(element);
+      });
+      this.mails= buffer;
+    }
+  }
+  this.mails.push(result);
   }
 }
 }

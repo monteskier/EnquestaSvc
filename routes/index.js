@@ -31,6 +31,7 @@ router.post('/enviar', function(req, res, next){
       Resultats.setVotsP6(parseInt(post.op6),0);
       Resultats.setVotsP7(parseInt(post.op7),0);
       Resultats.setComentaris(post.op8, 0);
+      Resultats.setMails(post.mail, 0);
 
       collection.insert(Resultats, function(e, docs){
         if(e){
@@ -72,6 +73,7 @@ function actualitzar(req, res, next){
     Resultats.setVotsP6(parseInt(post.op6),parseInt(docs.pregunta6.valor));
     Resultats.setVotsP7(parseInt(post.op7), parseInt(docs.pregunta7.valor));
     Resultats.setComentaris(post.op8, docs.pregunta8);
+    Resultats.setMails(post.mail, docs.mails);
 
     collection.update({"_id": objectId},Resultats, function(e, docssub){
       if(e){

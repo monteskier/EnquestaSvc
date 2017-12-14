@@ -13,4 +13,24 @@ angularApp.controller('MainDefaultController', function($scope, $location, $root
       alert(response.data.msg);
     });
   };
+  $scope.obligatorietat = function(){
+    if(parseInt($scope.formData.op6) <= 2 || parseInt($scope.formData.op7) <= 2){
+        $scope.obligat = true;
+    }else{
+      $scope.obligat = false;
+    }
+
+  };
+  $scope.demanarMail = function(){
+    console.log("sexecuta el init");
+    if($scope.formData.op5=="Si"){
+      $scope.mail=false;
+      $scope.obligatmail=true;
+    }else if($scope.formData.op5!=="Si"){
+      $scope.mail=true;
+    }
+  };
+  $scope.initApp = function(){
+    $scope.mail=true;
+  };
 });

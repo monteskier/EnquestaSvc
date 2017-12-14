@@ -13,7 +13,10 @@ angular.module('SvcEnquesta')
         $rootScope.login="login";
         $rootScope.session=results.data.session;
         window.location.replace('/');
-        $timeout(setTimeout,3000);
+        setTimeout(function(){
+          $rootScope.flag = false;
+          $rootScope.printFlag = false;
+        },3000);
       });
     }
   };
@@ -30,11 +33,17 @@ angular.module('SvcEnquesta')
             $rootScope.session=results.data.session;
             $rootScope.login="logout";
             $location.path('llista');
-            $timeout(setTimeout,3000);
+            setTimeout(function(){
+              $rootScope.flag = false;
+              $rootScope.printFlag = false;
+            },3000);
           }else{
             $rootScope.msg = results.data.msg;
             $rootScope.flag=true;
-            $timeout(setTimeout,3000);
+            setTimeout(function(){
+              $rootScope.flag = false;
+              $rootScope.printFlag = false;
+            },3000);
           }
         });
       }
