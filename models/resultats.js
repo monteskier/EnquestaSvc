@@ -193,7 +193,9 @@ this.reset = function() {
       if(antic.comentaris.length>0){
         var buffer = [];
         antic.comentaris.forEach(function(element){
-          buffer.push(element);
+          if(element!==null){
+            buffer.push(element);
+          }
         });
         this.pregunta8.comentaris = buffer;
       }
@@ -209,7 +211,9 @@ this.setMails = function(result, antic){
     if(antic.length>0){
       var buffer = [];
       antic.forEach(function(element){
+        if(element!==null){
         buffer.push(element);
+        }
       });
       this.mails= buffer;
     }

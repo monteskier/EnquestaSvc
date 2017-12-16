@@ -28,6 +28,7 @@ angularApp.controller('MainDefaultController', function($scope, $location, $root
       $scope.obligatmail=true;
     }else if($scope.formData.op5!=="Si"){
       $scope.mail=true;
+      $scope.obligatmail=false;
     }
   };
   $scope.initApp = function(){
