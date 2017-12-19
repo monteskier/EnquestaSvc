@@ -47,11 +47,11 @@
     </ul>
     <ul>
       <li><h3>8: {{post.pregunta8.desc}}</h3></li>
-      <ul ng-repeat="coment in post.pregunta8.comentaris">
+      <ul ng-repeat="coment in post.pregunta8.comentaris track by $index">
         <li>{{coment}}</li>
       </ul>
       <h3>Llista de correus d'Interessats en participar:</h3>
-      <div ng-repeat="mail in post.mails">
+      <div ng-repeat="mail in post.mails track by $index">
           {{mail}}
       </div>
 </div>
